@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import carImage from '../assets/mahax-luxury-car.png';
 import './HeroSection.css';
 
@@ -12,11 +12,17 @@ const HeroSection = () => {
     offset: ["start start", "end start"]
   });
 
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scaleCar = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  const opacityCar = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const yBg = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
+  const yText = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
+  const opacityText = useTransform(smoothProgress, [0, 0.8], [1, 0]);
+  const scaleCar = useTransform(smoothProgress, [0, 1], [1, 1.2]);
+  const opacityCar = useTransform(smoothProgress, [0, 0.8], [1, 0]);
 
   // For staggered text reveal
   const titleText = "INDIA'S AI-FIRST URBAN CAR CARE PLATFORM".split(" ");
