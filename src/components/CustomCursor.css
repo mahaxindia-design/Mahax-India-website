@@ -1,0 +1,33 @@
+/* Only apply cursor: none when custom cursor is enabled (desktop) */
+body.custom-cursor-enabled,
+body.custom-cursor-enabled a,
+body.custom-cursor-enabled button,
+body.custom-cursor-enabled input,
+body.custom-cursor-enabled textarea {
+  cursor: none !important;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-orange);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999999;
+  box-shadow: 0 0 10px var(--accent-orange);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: -16px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent-orange);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999998;
+}

@@ -1,0 +1,55 @@
+.philosophy-section {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.philosophy-header h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.feature-icon {
+  color: var(--accent-orange);
+  margin-bottom: 1.5rem;
+  padding: 15px;
+  background: rgba(255, 90, 0, 0.1);
+  border-radius: 12px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
