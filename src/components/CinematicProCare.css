@@ -2,8 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100dvh;
   background: var(--bg-primary);
   z-index: 9999;
   overflow-y: auto;
@@ -43,7 +43,7 @@
 .cinematic-sticky {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -74,6 +74,23 @@
   width: 400px;
   z-index: 10;
   pointer-events: none;
+}
+
+.spec-list {
+  list-style: none;
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0;
+}
+
+.spec-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
 .cinematic-text-content {
@@ -158,18 +175,46 @@
 }
 
 @media (max-width: 768px) {
+  .close-cinematic {
+    top: max(1rem, env(safe-area-inset-top));
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+  }
+  .close-cinematic svg {
+    width: 24px;
+    height: 24px;
+  }
   .cinematic-text-area {
-    top: 15%;
+    top: 8%;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 95%;
     text-align: center;
   }
+  .cinematic-text-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .cinematic-text-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .spec-list {
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1.5rem;
+    margin: 1rem auto 0 auto;
+    text-align: left;
+  }
+  .spec-list li {
+    font-size: 0.85rem;
+  }
   .cinematic-3d-stage {
-    top: 20%;
+    top: 25%;
   }
   .cinematic-model {
-    width: 300px;
+    width: 280px;
   }
   .cinematic-final-card {
     width: 95%;

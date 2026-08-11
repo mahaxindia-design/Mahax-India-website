@@ -16,6 +16,16 @@ const CinematicClearView = ({ onClose }) => {
   const overlayRef = useRef(null);
   const [showAppModal, setShowAppModal] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -141,10 +151,11 @@ const CinematicClearView = ({ onClose }) => {
             <motion.div 
               className="cinematic-model" 
               animate={{ 
-                x: activeIndex === 1 ? "20%" : (activeIndex < 1 ? "-150%" : "100%"),
-                z: activeIndex === 1 ? 200 : (activeIndex < 1 ? -300 : -500),
+                x: activeIndex === 1 ? (isMobile ? "0%" : "20%") : (activeIndex < 1 ? "-150%" : "100%"),
+                y: isMobile && activeIndex === 1 ? "80px" : "0px",
+                z: activeIndex === 1 ? (isMobile ? 100 : 200) : (activeIndex < 1 ? -300 : -500),
                 rotateY: activeIndex === 1 ? -15 : (activeIndex < 1 ? 30 : -45),
-                scale: activeIndex === 1 ? 1.3 : 0.5,
+                scale: activeIndex === 1 ? (isMobile ? 0.9 : 1.3) : 0.5,
                 opacity: activeIndex === 1 ? 1 : 0
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -156,10 +167,11 @@ const CinematicClearView = ({ onClose }) => {
             <motion.div 
               className="cinematic-model" 
               animate={{ 
-                x: activeIndex === 2 ? "20%" : (activeIndex === 3 ? "0%" : "150%"),
-                z: activeIndex === 2 ? 200 : (activeIndex === 3 ? 0 : -300),
+                x: activeIndex === 2 ? (isMobile ? "0%" : "20%") : (activeIndex === 3 ? "0%" : "150%"),
+                y: isMobile && activeIndex === 2 ? "80px" : "0px",
+                z: activeIndex === 2 ? (isMobile ? 100 : 200) : (activeIndex === 3 ? 0 : -300),
                 rotateY: activeIndex === 2 ? -15 : (activeIndex === 3 ? 0 : -30),
-                scale: activeIndex === 2 ? 1.3 : (activeIndex === 3 ? 1.0 : 0.5),
+                scale: activeIndex === 2 ? (isMobile ? 0.9 : 1.3) : (activeIndex === 3 ? (isMobile ? 0.8 : 1.0) : 0.5),
                 opacity: activeIndex === 2 ? 1 : (activeIndex === 3 ? 0.4 : 0)
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -171,10 +183,11 @@ const CinematicClearView = ({ onClose }) => {
             <motion.div 
               className="cinematic-model" 
               animate={{ 
-                x: activeIndex === 0 ? "20%" : "100%",
-                z: activeIndex === 0 ? 200 : -500,
+                x: activeIndex === 0 ? (isMobile ? "0%" : "20%") : "100%",
+                y: isMobile && activeIndex === 0 ? "80px" : "0px",
+                z: activeIndex === 0 ? (isMobile ? 100 : 200) : -500,
                 rotateY: activeIndex === 0 ? -15 : -45,
-                scale: activeIndex === 0 ? 1.3 : 0.5,
+                scale: activeIndex === 0 ? (isMobile ? 0.9 : 1.3) : 0.5,
                 opacity: activeIndex === 0 ? 1 : 0
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}

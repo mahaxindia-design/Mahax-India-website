@@ -14,7 +14,7 @@
 }
 
 .coming-soon-modal {
-  background: var(--bg-surface);
+  background: rgba(20, 20, 20, 0.95);
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 3rem 2rem;
