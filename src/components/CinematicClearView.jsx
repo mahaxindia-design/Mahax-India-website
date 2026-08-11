@@ -4,9 +4,9 @@ import { ShieldCheck, Droplet, Layers, X, Eye, Download, Hand, CloudOff, Maximiz
 import { getWhatsAppLink } from '../utils/whatsapp';
 
 // Using placeholder imports - ensure user saves files exactly as named
-import cvProduct1 from '../assets/clearview-1.png';
+import cvProduct1 from '../assets/clearview-3.png';
 import cvProduct2 from '../assets/clearview-2.png';
-import cvProduct3 from '../assets/clearview-3.png';
+import cvProduct3 from '../assets/clearview-1.png';
 
 // We reuse the CSS from ProCare since the structure is identical
 import './CinematicProCare.css';
