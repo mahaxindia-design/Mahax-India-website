@@ -26,38 +26,38 @@ const CinematicProCare = ({ onClose }) => {
   // Background glow opacity
   const glowOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
-  // -- MAROON TOWEL (Center initially, then focused first) --
-  const maroonX = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4], ["0%", "20%", "20%", "100%"]);
-  const maroonZ = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4], [0, 200, 200, -500]);
-  const maroonRotateY = useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4], [0, -15, 10, -15, -45]);
-  const maroonScale = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4], [1, 1.3, 1.3, 0.5]);
-  const maroonOpacity = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4], [1, 1, 1, 0]);
+  // -- MAROON TOWEL (Focused instantly at scroll 0) --
+  const maroonX = useTransform(scrollYProgress, [0, 0.25, 0.35], ["20%", "20%", "100%"]);
+  const maroonZ = useTransform(scrollYProgress, [0, 0.25, 0.35], [200, 200, -500]);
+  const maroonRotateY = useTransform(scrollYProgress, [0, 0.15, 0.25, 0.35], [-15, 10, -15, -45]);
+  const maroonScale = useTransform(scrollYProgress, [0, 0.25, 0.35], [1.3, 1.3, 0.5]);
+  const maroonOpacity = useTransform(scrollYProgress, [0, 0.25, 0.35], [1, 1, 0]);
 
-  // -- BLUE TOWEL (Left initially, moves to focus second) --
-  const blueX = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4, 0.6, 0.7], ["-120%", "-150%", "-150%", "20%", "20%", "100%"]);
-  const blueZ = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4, 0.6, 0.7], [-200, -300, -300, 200, 200, -500]);
-  const blueRotateY = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7], [25, 30, 30, -15, 10, -15, -45]);
-  const blueScale = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4, 0.6, 0.7], [0.7, 0.5, 0.5, 1.3, 1.3, 0.5]);
-  const blueOpacity = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4, 0.6, 0.7], [0.6, 0.3, 0.3, 1, 1, 0]);
+  // -- BLUE TOWEL (Hidden left, moves to focus second) --
+  const blueX = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], ["-150%", "-150%", "20%", "20%", "100%"]);
+  const blueZ = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], [-300, -300, 200, 200, -500]);
+  const blueRotateY = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.45, 0.55, 0.65], [30, 30, -15, 10, -15, -45]);
+  const blueScale = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], [0.5, 0.5, 1.3, 1.3, 0.5]);
+  const blueOpacity = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], [0.3, 0.3, 1, 1, 0]);
 
-  // -- YELLOW TOWEL (Right initially, moves to focus third) --
-  const yellowX = useTransform(scrollYProgress, [0, 0.1, 0.6, 0.7, 0.9, 1], ["120%", "150%", "150%", "20%", "20%", "0%"]);
-  const yellowZ = useTransform(scrollYProgress, [0, 0.1, 0.6, 0.7, 0.9, 1], [-200, -300, -300, 200, 200, 0]);
-  const yellowRotateY = useTransform(scrollYProgress, [0, 0.1, 0.6, 0.7, 0.8, 0.9, 1], [-25, -30, -30, -15, 10, -15, 0]);
-  const yellowScale = useTransform(scrollYProgress, [0, 0.1, 0.6, 0.7, 0.9, 1], [0.7, 0.5, 0.5, 1.3, 1.3, 1]);
-  const yellowOpacity = useTransform(scrollYProgress, [0, 0.1, 0.6, 0.7, 0.9, 1], [0.6, 0.3, 0.3, 1, 1, 1]);
+  // -- YELLOW TOWEL (Hidden right, moves to focus third, then centers behind final card) --
+  const yellowX = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], ["150%", "150%", "20%", "20%", "0%"]);
+  const yellowZ = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [-300, -300, 200, 200, 0]);
+  const yellowRotateY = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.75, 0.8, 0.9], [-30, -30, -15, 10, -15, 0]);
+  const yellowScale = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [0.5, 0.5, 1.3, 1.3, 1]);
+  const yellowOpacity = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [0.3, 0.3, 1, 1, 1]);
 
   // -- TEXT ANIMATIONS (Staggered reveals) --
-  const text1Opacity = useTransform(scrollYProgress, [0.05, 0.1, 0.25, 0.3], [0, 1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0.05, 0.1, 0.25, 0.3], [40, 0, 0, -40]);
+  const text1Opacity = useTransform(scrollYProgress, [0, 0.25, 0.3], [1, 1, 0]);
+  const text1Y = useTransform(scrollYProgress, [0, 0.25, 0.3], [0, 0, -40]);
 
-  const text2Opacity = useTransform(scrollYProgress, [0.35, 0.4, 0.55, 0.6], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.35, 0.4, 0.55, 0.6], [40, 0, 0, -40]);
+  const text2Opacity = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [0, 1, 1, 0]);
+  const text2Y = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [40, 0, 0, -40]);
 
-  const text3Opacity = useTransform(scrollYProgress, [0.65, 0.7, 0.85, 0.9], [0, 1, 1, 0]);
-  const text3Y = useTransform(scrollYProgress, [0.65, 0.7, 0.85, 0.9], [40, 0, 0, -40]);
+  const text3Opacity = useTransform(scrollYProgress, [0.6, 0.65, 0.8, 0.85], [0, 1, 1, 0]);
+  const text3Y = useTransform(scrollYProgress, [0.6, 0.65, 0.8, 0.85], [40, 0, 0, -40]);
 
-  const finalSummaryOpacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1]);
+  const finalSummaryOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1]);
 
   return (
     <div className="cinematic-overlay" ref={overlayRef}>
