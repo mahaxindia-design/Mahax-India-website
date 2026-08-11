@@ -57,11 +57,13 @@ const PhaseTwoServices = () => {
 
         <div className="special-box glass-panel">
           <h3>What makes Mahax Special here?</h3>
-          <p className="highlight-text">1. Doorstep Professional Car Care</p>
+          <p className="highlight-text">Doorstep Professional Car Care</p>
           <div className="benefits-row">
-            <span className="benefit-tag">Time Save</span>
-            <span className="benefit-tag">Fuel Save</span>
-            <span className="benefit-tag">Traffic Reduces</span>
+            <span className="benefit-tag">Time Saved</span>
+            <span className="benefit-tag">Fuel & Travel Savings</span>
+            <span className="benefit-tag">Reduced Traffic & Road Congestion</span>
+            <span className="benefit-tag">Structured Employment Opportunities</span>
+            <span className="benefit-tag">Water Conservation</span>
           </div>
         </div>
 
