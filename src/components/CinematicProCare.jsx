@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Droplet, Layers, X, Download, Sparkles, Feather, Maximize, CheckCircle, Wind, Eye, RefreshCw, Hand, Car } from 'lucide-react';
 import towelMaroon from '../assets/towel-maroon.jpg';
 import towelBlue from '../assets/towel-blue.png';
@@ -11,6 +11,7 @@ import './CinematicProCare.css';
 const CinematicProCare = ({ onClose }) => {
   const overlayRef = useRef(null);
   const [showAppModal, setShowAppModal] = React.useState(false);
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -35,41 +36,20 @@ const CinematicProCare = ({ onClose }) => {
     container: overlayRef
   });
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest < 0.28) {
+      setActiveIndex(0);
+    } else if (latest >= 0.28 && latest < 0.58) {
+      setActiveIndex(1);
+    } else if (latest >= 0.58 && latest < 0.83) {
+      setActiveIndex(2);
+    } else {
+      setActiveIndex(3);
+    }
+  });
+
   // Background glow opacity
   const glowOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
-
-  // -- MAROON TOWEL (Focused instantly at scroll 0) --
-  const maroonX = useTransform(scrollYProgress, [0.25, 0.35], ["20%", "100%"]);
-  const maroonZ = useTransform(scrollYProgress, [0.25, 0.35], [200, -500]);
-  const maroonRotateY = useTransform(scrollYProgress, [0.25, 0.35], [-15, -45]);
-  const maroonScale = useTransform(scrollYProgress, [0.25, 0.35], [1.3, 0.5]);
-  const maroonOpacity = useTransform(scrollYProgress, [0.25, 0.35], [1, 0]);
-
-  // -- BLUE TOWEL (Hidden left, moves to focus second) --
-  const blueX = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], ["-150%", "20%", "20%", "100%"]);
-  const blueZ = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [-300, 200, 200, -500]);
-  const blueRotateY = useTransform(scrollYProgress, [0.25, 0.35, 0.45, 0.55, 0.65], [30, -15, 10, -15, -45]);
-  const blueScale = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0.5, 1.3, 1.3, 0.5]);
-  const blueOpacity = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0.3, 1, 1, 0]);
-
-  // -- YELLOW TOWEL (Hidden right, moves to focus third, then centers behind final card) --
-  const yellowX = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], ["150%", "20%", "20%", "0%"]);
-  const yellowZ = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], [-300, 200, 200, 0]);
-  const yellowRotateY = useTransform(scrollYProgress, [0.55, 0.65, 0.75, 0.8, 0.9], [-30, -15, 10, -15, 0]);
-  const yellowScale = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], [0.5, 1.3, 1.3, 1]);
-  const yellowOpacity = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], [0.3, 1, 1, 1]);
-
-  // -- TEXT ANIMATIONS (Simplified to ensure robust clamping) --
-  const text1Opacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0.2, 0.25], [0, -40]);
-
-  const text2Opacity = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [40, 0, 0, -40]);
-
-  const text3Opacity = useTransform(scrollYProgress, [0.65, 0.7, 0.8, 0.85], [0, 1, 1, 0]);
-  const text3Y = useTransform(scrollYProgress, [0.65, 0.7, 0.8, 0.85], [40, 0, 0, -40]);
-
-  const finalSummaryOpacity = useTransform(scrollYProgress, [0.85, 0.9], [0, 1]);
 
   return (
     <div className="cinematic-overlay" ref={overlayRef}>
@@ -84,65 +64,133 @@ const CinematicProCare = ({ onClose }) => {
           <motion.div className="cinematic-glow" style={{ opacity: glowOpacity }} />
 
           <div className="cinematic-text-area">
-            {/* Maroon Text */}
-            <motion.div className="cinematic-text-content" style={{ opacity: text1Opacity, y: text1Y }}>
-              <h4 className="text-accent">Mahax's ProCare™</h4>
-              <h2>1200 GSM<br/>Ultra Plush</h2>
-              <p>Premium edgeless finishing cloth. Engineered for maximum safety and scratch prevention on all exterior surfaces.</p>
-              <ul className="spec-list">
-                <li><ShieldCheck size={18} className="text-accent" /> Scratch Free</li>
-                <li><Droplet size={18} className="text-accent" /> High Absorbency</li>
-                <li><Sparkles size={18} className="text-accent" /> Lint-Free Finish</li>
-                <li><Feather size={18} className="text-accent" /> Ultra-Soft Microfiber</li>
-                <li><RefreshCw size={18} className="text-accent" /> Machine Washable</li>
-                <li><ShieldCheck size={18} className="text-accent" /> Long-Lasting Durability</li>
-              </ul>
-            </motion.div>
+            <AnimatePresence mode="wait">
+              {activeIndex === 0 && (
+                <motion.div 
+                  key="p1"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.4 }}
+                  className="cinematic-text-content"
+                >
+                  <h4 className="text-accent">Mahax's ProCare™</h4>
+                  <h2>1200 GSM<br/>Ultra Plush</h2>
+                  <p>Premium edgeless finishing cloth. Engineered for maximum safety and scratch prevention on all exterior surfaces.</p>
+                  <ul className="spec-list">
+                    <li><ShieldCheck size={18} className="text-accent" /> Scratch Free</li>
+                    <li><Droplet size={18} className="text-accent" /> High Absorbency</li>
+                    <li><Sparkles size={18} className="text-accent" /> Lint-Free Finish</li>
+                    <li><Feather size={18} className="text-accent" /> Ultra-Soft Microfiber</li>
+                    <li><RefreshCw size={18} className="text-accent" /> Machine Washable</li>
+                    <li><ShieldCheck size={18} className="text-accent" /> Long-Lasting Durability</li>
+                  </ul>
+                </motion.div>
+              )}
 
-            {/* Blue Text */}
-            <motion.div className="cinematic-text-content" style={{ opacity: text2Opacity, y: text2Y }}>
-              <h4 className="text-accent">Mahax's ProCare™</h4>
-              <h2>600 GSM<br/>Performance</h2>
-              <p>40x60 cm heavy-duty microfiber. Trusted by professionals for waterless washing and intense cleaning.</p>
-              <ul className="spec-list">
-                <li><Layers size={18} className="text-accent" /> Professional Grade</li>
-                <li><ShieldCheck size={18} className="text-accent" /> Safe on Paint</li>
-                <li><Maximize size={18} className="text-accent" /> High Density Weave</li>
-                <li><CheckCircle size={18} className="text-accent" /> Streak-Free Cleaning</li>
-                <li><Hand size={18} className="text-accent" /> Easy Grip</li>
-                <li><Sparkles size={18} className="text-accent" /> Wax & Polish Ready</li>
-              </ul>
-            </motion.div>
+              {activeIndex === 1 && (
+                <motion.div 
+                  key="p2"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.4 }}
+                  className="cinematic-text-content"
+                >
+                  <h4 className="text-accent">Mahax's ProCare™</h4>
+                  <h2>600 GSM<br/>Performance</h2>
+                  <p>40x60 cm heavy-duty microfiber. Trusted by professionals for waterless washing and intense cleaning.</p>
+                  <ul className="spec-list">
+                    <li><Layers size={18} className="text-accent" /> Professional Grade</li>
+                    <li><ShieldCheck size={18} className="text-accent" /> Safe on Paint</li>
+                    <li><Maximize size={18} className="text-accent" /> High Density Weave</li>
+                    <li><CheckCircle size={18} className="text-accent" /> Streak-Free Cleaning</li>
+                    <li><Hand size={18} className="text-accent" /> Easy Grip</li>
+                    <li><Sparkles size={18} className="text-accent" /> Wax & Polish Ready</li>
+                  </ul>
+                </motion.div>
+              )}
 
-            {/* Yellow Text */}
-            <motion.div className="cinematic-text-content" style={{ opacity: text3Opacity, y: text3Y }}>
-              <h4 className="text-accent">Mahax's ProCare™</h4>
-              <h2>400 GSM<br/>Utility Cloth</h2>
-              <p>40x40 cm superior care. Ideal for interior detailing, glass wiping, and general automotive care.</p>
-              <ul className="spec-list">
-                <li><Droplet size={18} className="text-accent" /> Multi-surface Safe</li>
-                <li><Layers size={18} className="text-accent" /> Reusable & Durable</li>
-                <li><Wind size={18} className="text-accent" /> Quick Drying</li>
-                <li><Eye size={18} className="text-accent" /> Perfect for Glass</li>
-                <li><Car size={18} className="text-accent" /> Interior & Exterior</li>
-                <li><Maximize size={18} className="text-accent" /> Precision Edges</li>
-              </ul>
-            </motion.div>
+              {activeIndex === 2 && (
+                <motion.div 
+                  key="p3"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.4 }}
+                  className="cinematic-text-content"
+                >
+                  <h4 className="text-accent">Mahax's ProCare™</h4>
+                  <h2>400 GSM<br/>Utility Cloth</h2>
+                  <p>40x40 cm superior care. Ideal for interior detailing, glass wiping, and general automotive care.</p>
+                  <ul className="spec-list">
+                    <li><Droplet size={18} className="text-accent" /> Multi-surface Safe</li>
+                    <li><Layers size={18} className="text-accent" /> Reusable & Durable</li>
+                    <li><Wind size={18} className="text-accent" /> Quick Drying</li>
+                    <li><Eye size={18} className="text-accent" /> Perfect for Glass</li>
+                    <li><Car size={18} className="text-accent" /> Interior & Exterior</li>
+                    <li><Maximize size={18} className="text-accent" /> Precision Edges</li>
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <div className="cinematic-3d-stage">
-            <motion.div className="cinematic-model" style={{ x: blueX, z: blueZ, rotateY: blueRotateY, scale: blueScale, opacity: blueOpacity }}>
+            {/* Blue Towel */}
+            <motion.div 
+              className="cinematic-model" 
+              animate={{ 
+                x: activeIndex === 1 ? "20%" : (activeIndex < 1 ? "-150%" : "100%"),
+                z: activeIndex === 1 ? 200 : (activeIndex < 1 ? -300 : -500),
+                rotateY: activeIndex === 1 ? -15 : (activeIndex < 1 ? 30 : -45),
+                scale: activeIndex === 1 ? 1.3 : 0.5,
+                opacity: activeIndex === 1 ? 1 : 0
+              }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
               <img src={towelBlue} alt="Blue Towel" />
             </motion.div>
-            <motion.div className="cinematic-model" style={{ x: yellowX, z: yellowZ, rotateY: yellowRotateY, scale: yellowScale, opacity: yellowOpacity }}>
+
+            {/* Yellow Towel */}
+            <motion.div 
+              className="cinematic-model" 
+              animate={{ 
+                x: activeIndex === 2 ? "20%" : (activeIndex === 3 ? "0%" : "150%"),
+                z: activeIndex === 2 ? 200 : (activeIndex === 3 ? 0 : -300),
+                rotateY: activeIndex === 2 ? -15 : (activeIndex === 3 ? 0 : -30),
+                scale: activeIndex === 2 ? 1.3 : (activeIndex === 3 ? 1.0 : 0.5),
+                opacity: activeIndex === 2 ? 1 : (activeIndex === 3 ? 0.4 : 0)
+              }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
               <img src={towelYellow} alt="Yellow Towel" />
             </motion.div>
-            <motion.div className="cinematic-model" style={{ x: maroonX, z: maroonZ, rotateY: maroonRotateY, scale: maroonScale, opacity: maroonOpacity }}>
+
+            {/* Maroon Towel */}
+            <motion.div 
+              className="cinematic-model" 
+              animate={{ 
+                x: activeIndex === 0 ? "20%" : "100%",
+                z: activeIndex === 0 ? 200 : -500,
+                rotateY: activeIndex === 0 ? -15 : -45,
+                scale: activeIndex === 0 ? 1.3 : 0.5,
+                opacity: activeIndex === 0 ? 1 : 0
+              }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
               <img src={towelMaroon} alt="Maroon Towel" />
             </motion.div>
           </div>
 
-          <motion.div className="cinematic-final-card" style={{ opacity: finalSummaryOpacity }}>
+          <motion.div 
+            className="cinematic-final-card" 
+            animate={{ 
+              opacity: activeIndex === 3 ? 1 : 0,
+              pointerEvents: activeIndex === 3 ? "auto" : "none"
+            }}
+            transition={{ duration: 0.4 }}
+          >
             <h2>Mahax's ProCare™</h2>
             <p className="text-accent text-xl">3-PIECE COMPLETE KIT</p>
             <div className="final-price">₹1099/-</div>
