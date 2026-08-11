@@ -2,11 +2,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100dvh;
   background: var(--bg-primary);
   z-index: 10000;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -255,6 +256,8 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 2rem;
+    width: 100%;
+    overflow-x: hidden;
   }
   
   .cp-sidebar {
@@ -262,12 +265,16 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-right: 0;
     padding-bottom: 2rem;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
   }
   
   .cp-nav {
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
   }
   
   .cp-nav-item {
@@ -276,7 +283,17 @@
   }
   
   .cp-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  
+  .cp-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cp-content {
+    min-width: 0;
+    width: 100%;
   }
   
   .cp-grid-2 {
