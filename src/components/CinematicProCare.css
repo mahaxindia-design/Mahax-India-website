@@ -6,8 +6,9 @@
   height: 100vh;
   background: var(--bg-primary);
   z-index: 9999;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .close-cinematic {
