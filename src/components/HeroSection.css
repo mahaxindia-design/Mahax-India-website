@@ -23,6 +23,9 @@
   opacity: 0.3;
   border-radius: 50%;
   animation: float 20s infinite ease-in-out;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .blob-1 {
@@ -160,6 +163,8 @@
   justify-content: center;
   align-items: center;
   will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .car-image-container {
@@ -170,6 +175,9 @@
   justify-content: center;
   align-items: center;
   z-index: 2;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .hero-car-image {
@@ -181,17 +189,22 @@
   z-index: 2;
   position: relative;
   border: 1px solid rgba(255, 90, 0, 0.2);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .glow-effect {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) translate3d(0, 0, 0);
   width: 60%;
   height: 60%;
   background: radial-gradient(circle, rgba(255, 90, 0, 0.2) 0%, transparent 70%);
   z-index: 1;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 @media (max-width: 1024px) {
