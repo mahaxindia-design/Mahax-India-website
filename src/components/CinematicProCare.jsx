@@ -15,7 +15,19 @@ const CinematicProCare = ({ onClose }) => {
   // Lock body scroll when open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = 'auto'; };
+    if (overlayRef.current) {
+      overlayRef.current.scrollTop = 0;
+    }
+    // Also reset with timeout to ensure Safari layout pass doesn't override it
+    const timer = setTimeout(() => {
+      if (overlayRef.current) {
+        overlayRef.current.scrollTop = 0;
+      }
+    }, 50);
+    return () => { 
+      document.body.style.overflow = 'auto';
+      clearTimeout(timer);
+    };
   }, []);
 
   // Track scroll inside the full-screen overlay
