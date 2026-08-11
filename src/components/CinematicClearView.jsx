@@ -48,17 +48,17 @@ const CinematicClearView = ({ onClose }) => {
   const p3Scale = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [0.5, 0.5, 1.3, 1.3, 1]);
   const p3Opacity = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [0.3, 0.3, 1, 1, 1]);
 
-  // -- TEXT ANIMATIONS --
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.25, 0.3], [1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0, 0.25, 0.3], [0, 0, -40]);
+  // -- TEXT ANIMATIONS (With explicit gaps to prevent overlap) --
+  const text1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.25, 0.3], [1, 1, 0, 0]);
+  const text1Y = useTransform(scrollYProgress, [0, 0.2, 0.25, 0.3], [0, 0, -40, -40]);
 
-  const text2Opacity = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [40, 0, 0, -40]);
+  const text2Opacity = useTransform(scrollYProgress, [0.25, 0.3, 0.35, 0.55, 0.6, 0.65], [0, 0, 1, 1, 0, 0]);
+  const text2Y = useTransform(scrollYProgress, [0.25, 0.3, 0.35, 0.55, 0.6, 0.65], [40, 40, 0, 0, -40, -40]);
 
-  const text3Opacity = useTransform(scrollYProgress, [0.6, 0.65, 0.8, 0.85], [0, 1, 1, 0]);
-  const text3Y = useTransform(scrollYProgress, [0.6, 0.65, 0.8, 0.85], [40, 0, 0, -40]);
+  const text3Opacity = useTransform(scrollYProgress, [0.6, 0.65, 0.7, 0.8, 0.85, 0.9], [0, 0, 1, 1, 0, 0]);
+  const text3Y = useTransform(scrollYProgress, [0.6, 0.65, 0.7, 0.8, 0.85, 0.9], [40, 40, 0, 0, -40, -40]);
 
-  const finalSummaryOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1]);
+  const finalSummaryOpacity = useTransform(scrollYProgress, [0.8, 0.85, 0.9, 1.0], [0, 0, 1, 1]);
 
   return (
     <div className="cinematic-overlay" ref={overlayRef}>
