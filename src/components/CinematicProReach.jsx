@@ -40,37 +40,37 @@ const CinematicProReach = ({ onClose }) => {
   const glowOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
   // -- PRODUCT 1 (Focused instantly at scroll 0) --
-  const p1X = useTransform(scrollYProgress, [0, 0.25, 0.35], ["20%", "20%", "100%"]);
-  const p1Z = useTransform(scrollYProgress, [0, 0.25, 0.35], [200, 200, -500]);
-  const p1RotateY = useTransform(scrollYProgress, [0, 0.15, 0.25, 0.35], [-15, 10, -15, -45]);
-  const p1Scale = useTransform(scrollYProgress, [0, 0.25, 0.35], [1.3, 1.3, 0.5]);
-  const p1Opacity = useTransform(scrollYProgress, [0, 0.25, 0.35], [1, 1, 0]);
+  const p1X = useTransform(scrollYProgress, [0.25, 0.35], ["20%", "100%"]);
+  const p1Z = useTransform(scrollYProgress, [0.25, 0.35], [200, -500]);
+  const p1RotateY = useTransform(scrollYProgress, [0.25, 0.35], [-15, -45]);
+  const p1Scale = useTransform(scrollYProgress, [0.25, 0.35], [1.3, 0.5]);
+  const p1Opacity = useTransform(scrollYProgress, [0.25, 0.35], [1, 0]);
 
   // -- PRODUCT 2 (Hidden left, moves to focus second) --
-  const p2X = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], ["-150%", "-150%", "20%", "20%", "100%"]);
-  const p2Z = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], [-300, -300, 200, 200, -500]);
-  const p2RotateY = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.45, 0.55, 0.65], [30, 30, -15, 10, -15, -45]);
-  const p2Scale = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], [0.5, 0.5, 1.3, 1.3, 0.5]);
-  const p2Opacity = useTransform(scrollYProgress, [0, 0.25, 0.35, 0.55, 0.65], [0.3, 0.3, 1, 1, 0]);
+  const p2X = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], ["-150%", "20%", "20%", "100%"]);
+  const p2Z = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [-300, 200, 200, -500]);
+  const p2RotateY = useTransform(scrollYProgress, [0.25, 0.35, 0.45, 0.55, 0.65], [30, -15, 10, -15, -45]);
+  const p2Scale = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0.5, 1.3, 1.3, 0.5]);
+  const p2Opacity = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0.3, 1, 1, 0]);
 
   // -- PRODUCT 3 (Hidden right, moves to focus third, then centers behind final card) --
-  const p3X = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], ["150%", "150%", "20%", "20%", "0%"]);
-  const p3Z = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [-300, -300, 200, 200, 0]);
-  const p3RotateY = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.75, 0.8, 0.9], [-30, -30, -15, 10, -15, 0]);
-  const p3Scale = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [0.5, 0.5, 1.3, 1.3, 1]);
-  const p3Opacity = useTransform(scrollYProgress, [0, 0.55, 0.65, 0.8, 0.9], [0.3, 0.3, 1, 1, 1]);
+  const p3X = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], ["150%", "20%", "20%", "0%"]);
+  const p3Z = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], [-300, 200, 200, 0]);
+  const p3RotateY = useTransform(scrollYProgress, [0.55, 0.65, 0.75, 0.8, 0.9], [-30, -15, 10, -15, 0]);
+  const p3Scale = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], [0.5, 1.3, 1.3, 1]);
+  const p3Opacity = useTransform(scrollYProgress, [0.55, 0.65, 0.8, 0.9], [0.3, 1, 1, 1]);
 
-  // -- TEXT ANIMATIONS (With explicit gaps to prevent overlap) --
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.25, 0.3], [1, 1, 0, 0]);
-  const text1Y = useTransform(scrollYProgress, [0, 0.2, 0.25, 0.3], [0, 0, -40, -40]);
+  // -- TEXT ANIMATIONS (Simplified to ensure robust clamping) --
+  const text1Opacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);
+  const text1Y = useTransform(scrollYProgress, [0.2, 0.25], [0, -40]);
 
-  const text2Opacity = useTransform(scrollYProgress, [0.25, 0.3, 0.35, 0.55, 0.6, 0.65], [0, 0, 1, 1, 0, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.25, 0.3, 0.35, 0.55, 0.6, 0.65], [40, 40, 0, 0, -40, -40]);
+  const text2Opacity = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [0, 1, 1, 0]);
+  const text2Y = useTransform(scrollYProgress, [0.3, 0.35, 0.55, 0.6], [40, 0, 0, -40]);
 
-  const text3Opacity = useTransform(scrollYProgress, [0.6, 0.65, 0.7, 0.8, 0.85, 0.9], [0, 0, 1, 1, 0, 0]);
-  const text3Y = useTransform(scrollYProgress, [0.6, 0.65, 0.7, 0.8, 0.85, 0.9], [40, 40, 0, 0, -40, -40]);
+  const text3Opacity = useTransform(scrollYProgress, [0.65, 0.7, 0.8, 0.85], [0, 1, 1, 0]);
+  const text3Y = useTransform(scrollYProgress, [0.65, 0.7, 0.8, 0.85], [40, 0, 0, -40]);
 
-  const finalSummaryOpacity = useTransform(scrollYProgress, [0.8, 0.85, 0.9, 1.0], [0, 0, 1, 1]);
+  const finalSummaryOpacity = useTransform(scrollYProgress, [0.85, 0.9], [0, 1]);
 
   return (
     <div className="cinematic-overlay" ref={overlayRef}>
