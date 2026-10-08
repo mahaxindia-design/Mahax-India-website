@@ -125,21 +125,6 @@ const CompanyProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                       </p>
                     </div>
 
-                    <div className="cp-leader-section" style={{ marginBottom: '4rem' }}>
-                      <h1 className="cp-title">Srinivasa Goud Tadkal</h1>
-                      <p className="cp-subtitle">Founder</p>
-                      
-                      <div className="cp-glass-card">
-                        <p className="cp-text" style={{ margin: 0, fontStyle: 'italic', color: 'var(--text-primary)', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                          "Srinivasa Goud Tadkal is the Founder of Mahax India and the architect of its platform vision and national strategy. He conceptualised Mahax as an AI-first urban car-care platform to address systemic inefficiencies in time, fuel, water usage, traffic congestion and informal employment across Indian cities."
-                        </p>
-                      </div>
-                      
-                      <p className="cp-text mt-6">
-                        As Founder, shaped by first-hand exposure to working and living environments in India, the United States and the United Kingdom, he leads platform design, business models, partnerships, pricing frameworks and long-term expansion strategy- ensuring Mahax is built as enduring urban infrastructure rather than a short-term service brand.
-                      </p>
-                    </div>
-
                     <div className="cp-leader-section">
                       <h1 className="cp-title">Mohd Taher Uddin</h1>
                       <p className="cp-subtitle">Co-Founder & Chief Executive Officer</p>
