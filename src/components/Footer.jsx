@@ -14,7 +14,7 @@ const Footer = ({ onOpenCompanyProfile, onOpenLegalProfile }) => {
           <div className="footer-brand">
             <a href="#" className="navbar-logo" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <img src={companyLogo} alt="Mahax" style={{ width: '32px', height: 'auto' }} />
-              <span className="logo-text" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Mahax India</span>
+              <span className="logo-text" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Mahax</span>
             </a>
             <p className="footer-desc">
               India's AI-First Urban Car Care Platform, Reimagined!
@@ -72,7 +72,7 @@ const Footer = ({ onOpenCompanyProfile, onOpenLegalProfile }) => {
         </div>
         
         <div className="footer-bottom">
-          <p>Copyright &copy; {new Date().getFullYear()} Mahax India</p>
+          <p>Copyright &copy; {new Date().getFullYear()} Mahax</p>
           <div className="footer-social-bottom">
             <a href="https://www.facebook.com/people/Mahax-India/61586127590204/" target="_blank" rel="noopener noreferrer"><FaFacebook size={18} /></a>
             <a href="https://x.com/Mahaxindia" target="_blank" rel="noopener noreferrer"><FaTwitter size={18} /></a>

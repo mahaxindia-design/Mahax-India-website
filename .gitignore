@@ -27,3 +27,16 @@ dist-ssr
 .netlify
 *.zip
 .env
+
+# Root prebuilt files (tracked in public/)
+/assets
+/chat-api.php
+/config.php
+/webhook.php
+/robots.txt
+/sitemap.xml
+/manual-*.pdf
+/mahax-icon.png
+/favicon.png
+/favicon.svg
+/icons.svg

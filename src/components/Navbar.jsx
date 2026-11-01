@@ -27,8 +27,8 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <a href="#" className="navbar-logo">
-          <img src={companyLogo} alt="Mahax India" className="nav-logo-image" />
-          <span className="logo-text">Mahax India</span>
+          <img src={companyLogo} alt="Mahax" className="nav-logo-image" />
+          <span className="logo-text">Mahax</span>
         </a>
 
         <div className="navbar-links">

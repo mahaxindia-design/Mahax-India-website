@@ -113,7 +113,7 @@ const CompanyProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                       
                       <div className="cp-glass-card">
                         <p className="cp-text" style={{ margin: 0, fontStyle: 'italic', color: 'var(--text-primary)', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                          "Sujatha Tadkal serves as the Chairperson & Proprietor of Mahax India. As the legal owner of the enterprise, she anchors Mahax as a women-led MSME initiative rooted in rural India and built for national relevance."
+                          "Sujatha Tadkal serves as the Chairperson & Proprietor of Mahax. As the legal owner of the enterprise, she anchors Mahax as a women-led MSME initiative rooted in rural India and built for national relevance."
                         </p>
                       </div>
                       
@@ -131,7 +131,7 @@ const CompanyProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                       
                       <div className="cp-glass-card">
                         <p className="cp-text" style={{ margin: 0, fontStyle: 'italic', color: 'var(--text-primary)', fontSize: '1.2rem', lineHeight: '1.8' }}>
-                          "Mohd Taher Uddin serves as Co-Founder & CEO of Mahax India, bringing operational rigor, execution discipline and ground-level leadership to the platform."
+                          "Mohd Taher Uddin serves as Co-Founder & CEO of Mahax, bringing operational rigor, execution discipline and ground-level leadership to the platform."
                         </p>
                       </div>
                       
@@ -163,7 +163,7 @@ const CompanyProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                         Undergraduate | Malla Reddy Group of Institutions
                       </p>
                       <p className="cp-text">
-                        Driving product research and innovation at Mahax India with a focus on next-generation car-care accessories, customer needs and responsible product solutions.
+                        Driving product research and innovation at Mahax with a focus on next-generation car-care accessories, customer needs and responsible product solutions.
                       </p>
                       <p className="cp-text">
                         Bringing a research-oriented perspective to Mahax's vision of Urban Car Care, Reimagined!.
@@ -177,7 +177,7 @@ const CompanyProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                         Undergraduate | Malla Reddy Group of Institutions
                       </p>
                       <p className="cp-text">
-                        Supporting Mahax India's business development and sustainability vision by exploring market opportunities, customer ecosystems and responsible resource utilisation.
+                        Supporting Mahax's business development and sustainability vision by exploring market opportunities, customer ecosystems and responsible resource utilisation.
                       </p>
                       <p className="cp-text">
                         Contributing to Mahax's journey from grassroots innovation to a scalable national car-care ecosystem.

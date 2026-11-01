@@ -110,7 +110,7 @@ const LegalProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                     <h1 className="cp-title">Terms of Service</h1>
                     <p className="cp-text">Last Updated: August 2026</p>
                     <p className="cp-text">
-                      Welcome to Mahax India. By accessing our website and purchasing our car care kits or using our doorstep services, you agree to comply with and be bound by the following terms and conditions.
+                      Welcome to Mahax. By accessing our website and purchasing our car care kits or using our doorstep services, you agree to comply with and be bound by the following terms and conditions.
                     </p>
                     <h3 style={{marginTop: '2rem', marginBottom: '1rem'}}>1. Services & Products</h3>
                     <p className="cp-text">
@@ -180,10 +180,10 @@ const LegalProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                     <p className="cp-text">Last Updated: August 2026</p>
                     <h3 style={{marginTop: '2rem', marginBottom: '1rem'}}>Introduction</h3>
                     <p className="cp-text">
-                      Mahax India (“we”, “our”, “us”) respects the privacy of every individual who interacts with our platform. This Privacy Policy explains how information is collected, used, stored and protected when you visit our website, use our web app or engage with our services.
+                      Mahax (“we”, “our”, “us”) respects the privacy of every individual who interacts with our platform. This Privacy Policy explains how information is collected, used, stored and protected when you visit our website, use our web app or engage with our services.
                     </p>
                     <p className="cp-text">
-                      Mahax India is a national, technology-enabled urban car-care platform and we are committed to handling user data responsibly, transparently and in compliance with applicable Indian laws.
+                      Mahax is a national, technology-enabled urban car-care platform and we are committed to handling user data responsibly, transparently and in compliance with applicable Indian laws.
                     </p>
                     
                     <h3 style={{marginTop: '2rem', marginBottom: '1rem'}}>Information We Collect</h3>
@@ -221,7 +221,7 @@ const LegalProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                       <li>Platform analytics and performance optimisation</li>
                       <li>Legal and compliance purposes</li>
                     </ul>
-                    <p className="cp-text"><strong>Mahax India does not sell or rent user data to third parties.</strong></p>
+                    <p className="cp-text"><strong>Mahax does not sell or rent user data to third parties.</strong></p>
 
                     <h3 style={{marginTop: '2rem', marginBottom: '1rem'}}>Data Protection & Security</h3>
                     <p className="cp-text">

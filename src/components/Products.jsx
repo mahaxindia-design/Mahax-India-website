@@ -47,7 +47,7 @@ const Products = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            The <span className="text-accent">Mahax India's</span> Systems
+            The <span className="text-accent">Mahax's</span> Systems
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}

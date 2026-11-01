@@ -45,7 +45,7 @@ const NewsletterPopup = () => {
         body: JSON.stringify({
           access_key: '4f08c118-b927-4752-bb53-c027f5d8d68c',
           email: email,
-          subject: 'New Newsletter Subscription - Mahax India',
+          subject: 'New Newsletter Subscription - Mahax',
           from_name: 'Mahax Website'
         })
       });
