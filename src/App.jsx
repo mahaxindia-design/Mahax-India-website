@@ -13,7 +13,6 @@ import CompanyProfile from './components/CompanyProfile';
 import LegalProfile from './components/LegalProfile';
 import NewsletterPopup from './components/NewsletterPopup';
 import AIChatbot from './components/AIChatbot';
-import ScrollProgress from './components/ScrollProgress';
 import './App.css';
 
 function App() {

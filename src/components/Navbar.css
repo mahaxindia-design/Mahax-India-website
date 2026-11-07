@@ -1,16 +1,23 @@
-.navbar {
+.navbar-fixed-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--nav-height);
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+  height: var(--nav-height);
   transition: all 0.3s ease;
   background: transparent;
 }
 
 .navbar.scrolled {
-  background: var(--bg-primary);
+  background: rgba(10, 11, 16, 0.95);
+  backdrop-filter: blur(16px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid var(--border-color);
 }
@@ -140,11 +147,12 @@
 }
 
 .mobile-menu {
-  position: fixed;
-  top: var(--nav-height);
+  position: absolute;
+  top: 100%;
   left: 0;
   width: 100%;
-  background: var(--bg-primary);
+  background: rgba(10, 11, 16, 0.98);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
   padding: 2rem;
   display: flex;

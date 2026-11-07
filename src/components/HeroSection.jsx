@@ -49,27 +49,6 @@ const HeroSection = () => {
           className="hero-content"
           style={{ y: yText, opacity: opacityText }}
         >
-          {/* Government of Telangana x WE Hub x Mahax Ecosystem Badge */}
-          <motion.div 
-            className="hero-ecosystem-badge glass-panel"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="hero-eco-logos">
-              <span className="hero-eco-circle tg-circle">
-                <img src={telanganaGovtLogo} alt="Government of Telangana" className="mini-eco-img" />
-              </span>
-              <span className="hero-eco-x">✕</span>
-              <span className="hero-eco-circle wehub-circle">
-                <img src={wehubLogo} alt="WE Hub Telangana" className="mini-eco-img wehub-img" />
-              </span>
-            </div>
-            <div className="hero-eco-text">
-              <span className="hero-eco-label">Under the Ecosystem of <strong>Government of Telangana</strong></span>
-              <span className="hero-eco-tagline">WE HUB <span className="text-accent">✕</span> MAHAX</span>
-            </div>
-          </motion.div>
 
           <motion.div 
             className="badge glass-panel"
