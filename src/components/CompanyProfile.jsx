@@ -116,6 +116,18 @@ const CompanyProfile = ({ isOpen, onClose, activeTab, setActiveTab }) => {
                           "Sujatha Tadkal serves as the Chairperson & Proprietor of Mahax. As the legal owner of the enterprise, she anchors Mahax as a women-led MSME initiative rooted in rural India and built for national relevance."
                         </p>
                       </div>
+
+                      <div className="cp-glass-card" style={{ marginTop: '1.5rem', border: '1px solid rgba(255, 90, 0, 0.35)', background: 'linear-gradient(145deg, rgba(255, 90, 0, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)' }}>
+                        <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent-orange)', fontWeight: 700, display: 'block', marginBottom: '0.5rem' }}>
+                          🏛️ Institutional Ecosystem & Incubation
+                        </span>
+                        <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '0.6rem', fontWeight: 800 }}>
+                          WE HUB ✕ MAHAX | Under the Ecosystem of Government of Telangana
+                        </h3>
+                        <p className="cp-text" style={{ margin: 0 }}>
+                          Mahax is collaborated with and incubated under <strong>WE Hub (Government of Telangana)</strong>—India's first state-led incubator exclusively for women entrepreneurs. Supporting Mahax as a women-led MSME enterprise, this ecosystem partnership provides institutional credibility, governance mentorship, and strategic growth acceleration.
+                        </p>
+                      </div>
                       
                       <p className="cp-text mt-6">
                         Her role focuses on governance, statutory compliance, and long-term stewardship, ensuring that Mahax operates with integrity in every layer.

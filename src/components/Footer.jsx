@@ -2,6 +2,8 @@ import React from 'react';
 import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import companyLogo from '../assets/mahax-logo-2.png';
+import telanganaGovtLogo from '../assets/telangana-govt-logo.png';
+import wehubLogo from '../assets/wehub-logo.png';
 import { getWhatsAppLink } from '../utils/whatsapp';
 import './Footer.css';
 
@@ -12,7 +14,7 @@ const Footer = ({ onOpenCompanyProfile, onOpenLegalProfile }) => {
         
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#" className="navbar-logo" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <a href="#" className="navbar-logo" style={{ marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <img src={companyLogo} alt="Mahax" style={{ width: '32px', height: 'auto' }} />
               <span className="logo-text" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Mahax</span>
             </a>
@@ -20,6 +22,23 @@ const Footer = ({ onOpenCompanyProfile, onOpenLegalProfile }) => {
               India's AI-First Urban Car Care Platform, Reimagined!
               Smarter Car Care. Cleaner Cities.
             </p>
+
+            {/* Ecosystem Trust Badge */}
+            <div className="footer-ecosystem-box">
+              <span className="footer-eco-badge-title">
+                Under the Ecosystem of <strong>Government of Telangana</strong>
+              </span>
+              <div className="footer-eco-brand-row">
+                <div className="footer-logo-wrap tg-wrap">
+                  <img src={telanganaGovtLogo} alt="Government of Telangana" className="footer-mini-emblem" />
+                </div>
+                <span className="footer-x-sep">✕</span>
+                <div className="footer-logo-wrap wehub-wrap">
+                  <img src={wehubLogo} alt="WE Hub Telangana" className="footer-mini-emblem wehub-fit" />
+                </div>
+                <span className="footer-collab-text">WE HUB ✕ MAHAX</span>
+              </div>
+            </div>
           </div>
           
           <div className="footer-links">

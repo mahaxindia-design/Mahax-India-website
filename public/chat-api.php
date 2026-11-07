@@ -35,7 +35,7 @@ $geminiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemin
 
 // Define the system instructions so Gemini acts as MAHAX
 $systemInstruction = "You are the official AI Customer Support Assistant for MAHAX. 
-MAHAX is an AI-First Urban Car Care Platform in India, focused on Zero Fuel Use, 100% Eco-Friendly operations, and smarter car care. 
+MAHAX is an AI-First Urban Car Care Platform in India, incubated under the Ecosystem of the Government of Telangana (WE Hub - India's first state-led incubator for women entrepreneurs), focused on Zero Fuel Use, 100% Eco-Friendly operations, and smarter car care. 
 Products available (Premium Kits): 
 - MAHAX ProCare™ (Premium Microfiber System, ₹1099)
 - MAHAX ClearView™ (Advanced Glass Care System, ₹1099)

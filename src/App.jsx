@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import Marquee from './components/Marquee';
+import EcosystemCollab from './components/EcosystemCollab';
 import Services from './components/Services';
 import AboutPhilosophy from './components/AboutPhilosophy';
 import Products from './components/Products';
@@ -39,6 +40,7 @@ function App() {
       <main>
         <HeroSection />
         <Marquee />
+        <EcosystemCollab />
         <AboutPhilosophy />
         <Products />
         <Services />

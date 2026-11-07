@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import companyLogo from '../assets/mahax-logo-2.png';
+import wehubLogo from '../assets/wehub-logo.png';
+import telanganaGovtLogo from '../assets/telangana-govt-logo.png';
 import { getWhatsAppLink } from '../utils/whatsapp';
 import './Navbar.css';
 
@@ -26,10 +28,21 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <a href="#" className="navbar-logo">
-          <img src={companyLogo} alt="Mahax" className="nav-logo-image" />
-          <span className="logo-text">Mahax</span>
-        </a>
+        <div className="navbar-brand-group">
+          <a href="#" className="navbar-logo">
+            <img src={companyLogo} alt="Mahax" className="nav-logo-image" />
+            <span className="logo-text">Mahax</span>
+          </a>
+
+          <div className="nav-collab-badge">
+            <span className="nav-collab-x">✕</span>
+            <div className="nav-collab-logos">
+              <img src={wehubLogo} alt="WE Hub" className="nav-wehub-logo" />
+              <img src={telanganaGovtLogo} alt="Govt of Telangana" className="nav-tg-logo" />
+            </div>
+            <span className="nav-collab-text">Govt of Telangana Ecosystem</span>
+          </div>
+        </div>
 
         <div className="navbar-links">
           <a href="#philosophy" className="nav-link">Philosophy</a>

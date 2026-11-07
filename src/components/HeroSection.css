@@ -67,6 +67,85 @@
   will-change: transform, opacity;
 }
 
+/* Hero Ecosystem Badge */
+.hero-ecosystem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.25rem 0.6rem 0.8rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 20, 29, 0.9) 100%);
+  border: 1px solid rgba(255, 90, 0, 0.35);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 90, 0, 0.1);
+  margin-bottom: 0.25rem;
+}
+
+.hero-eco-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-eco-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-eco-circle.tg-circle {
+  border: 1.5px solid #10b981;
+}
+
+.hero-eco-circle.wehub-circle {
+  border: 1.5px solid #00b4d8;
+  border-radius: 8px;
+  width: 44px;
+  height: 28px;
+  padding: 3px 5px;
+}
+
+.mini-eco-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-eco-x {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.hero-eco-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.hero-eco-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.hero-eco-label strong {
+  color: #ffffff;
+}
+
+.hero-eco-tagline {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
 .badge {
   display: flex;
   align-items: center;

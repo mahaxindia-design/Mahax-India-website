@@ -22,6 +22,12 @@
   justify-content: space-between;
 }
 
+.navbar-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -30,6 +36,55 @@
   font-size: 2rem;
   font-weight: 800;
   color: var(--text-primary);
+}
+
+.nav-collab-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.nav-collab-x {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.nav-collab-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-wehub-logo {
+  height: 20px;
+  width: auto;
+  background: #ffffff;
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: block;
+}
+
+.nav-tg-logo {
+  height: 22px;
+  width: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 1.5px;
+  display: block;
+}
+
+.nav-collab-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .nav-logo-image {
@@ -111,6 +166,12 @@
   text-align: center;
 }
 
+@media (max-width: 992px) {
+  .nav-collab-text {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
@@ -118,5 +179,16 @@
   
   .mobile-menu-btn {
     display: block;
+  }
+
+  .nav-collab-badge {
+    padding: 0.25rem 0.5rem;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-collab-badge {
+    display: none;
   }
 }
