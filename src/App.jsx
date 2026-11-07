@@ -35,7 +35,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <ScrollProgress />
       <Navbar />
       <main>
         <HeroSection />
