@@ -107,7 +107,7 @@
   color: var(--text-primary);
 }
 
-.connector-line {
+.workflow-node .connector-line {
   position: absolute;
   top: 30px;
   left: 50%;
@@ -139,7 +139,7 @@
     flex-direction: column;
     align-items: center;
   }
-  .connector-line {
+  .workflow-node .connector-line {
     top: 100%;
     left: 50%;
     width: 2px;

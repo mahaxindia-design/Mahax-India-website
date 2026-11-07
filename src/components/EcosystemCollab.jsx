@@ -63,10 +63,8 @@ const EcosystemCollab = () => {
             </motion.div>
 
             {/* Connecting Connector 1 */}
-            <div className="collab-connector">
-              <span className="connector-line"></span>
-              <span className="connector-icon">✕</span>
-              <span className="connector-line"></span>
+            <div className="collab-connector" aria-hidden="true">
+              <span className="collab-cross-badge">✕</span>
             </div>
 
             {/* WE Hub Logo Box */}
@@ -90,10 +88,8 @@ const EcosystemCollab = () => {
             </motion.div>
 
             {/* Connecting Connector 2 */}
-            <div className="collab-connector">
-              <span className="connector-line"></span>
-              <span className="connector-icon">✕</span>
-              <span className="connector-line"></span>
+            <div className="collab-connector" aria-hidden="true">
+              <span className="collab-cross-badge">✕</span>
             </div>
 
             {/* Mahax Logo Box */}

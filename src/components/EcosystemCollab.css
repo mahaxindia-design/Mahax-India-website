@@ -232,18 +232,15 @@
 .collab-connector {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  padding: 0 0.5rem;
 }
 
-.connector-line {
-  width: 30px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 90, 0, 0.5));
-}
-
-.connector-icon {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 1.2rem;
+.collab-cross-badge {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1.4rem;
+  font-weight: 300;
+  user-select: none;
 }
 
 /* Value Pillars Grid */
